@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/12 17:27:17 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/09/13 13:55:46 by seonggoc         ###   ########.fr       */
+/*   Created: 2023/03/24 16:42:33 by seonggoc          #+#    #+#             */
+/*   Updated: 2023/03/27 12:21:43 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#include "server.h"
-
-int	main()
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	ft_putstr_fd("server pid : ");
-	ft_putnbr_fd(getpid(), 1);
-	write(1, "\n", 1);
+	t_list	*tmp;
+
+	tmp = *lst;
+	while (tmp)
+	{
+		tmp = (*lst)->next;
+		del((*lst)->content);
+		free(*lst);
+		*lst = tmp;
+	}
 }

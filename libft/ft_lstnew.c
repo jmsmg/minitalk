@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: seonggoc <seonggoc@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/12 17:27:17 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/09/13 13:55:46 by seonggoc         ###   ########.fr       */
+/*   Created: 2023/03/24 07:06:18 by seonggoc          #+#    #+#             */
+/*   Updated: 2023/03/24 17:48:45 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#include "server.h"
-
-int	main()
+t_list	*ft_lstnew(void *content)
 {
-	ft_putstr_fd("server pid : ");
-	ft_putnbr_fd(getpid(), 1);
-	write(1, "\n", 1);
+	t_list	*tmp;
+
+	tmp = (t_list *)malloc(sizeof(t_list));
+	if (!tmp)
+	{
+		return (0);
+	}
+	tmp->content = content;
+	tmp->next = 0;
+	return (tmp);
 }

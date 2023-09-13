@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: seonggoc <seonggoc@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/12 17:27:17 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/09/13 13:55:46 by seonggoc         ###   ########.fr       */
+/*   Created: 2023/03/24 09:11:22 by seonggoc          #+#    #+#             */
+/*   Updated: 2023/03/27 14:43:00 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#include "server.h"
-
-int	main()
+t_list	*ft_lstlast(t_list *lst)
 {
-	ft_putstr_fd("server pid : ");
-	ft_putnbr_fd(getpid(), 1);
-	write(1, "\n", 1);
+	if (!lst)
+	{
+		return (0);
+	}
+	while (lst->next)
+	{
+		lst = lst->next;
+	}
+	return (lst);
 }

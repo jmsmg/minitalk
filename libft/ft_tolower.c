@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: seonggoc <seonggoc@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/12 17:27:17 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/09/13 13:55:46 by seonggoc         ###   ########.fr       */
+/*   Created: 2023/03/15 17:49:55 by seonggoc          #+#    #+#             */
+/*   Updated: 2023/03/27 14:37:17 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#include "server.h"
-
-int	main()
+int	ft_tolower(int c)
 {
-	ft_putstr_fd("server pid : ");
-	ft_putnbr_fd(getpid(), 1);
-	write(1, "\n", 1);
+	if ('A' <= c && c <= 'Z')
+	{
+		return (c + 32);
+	}
+	return (c);
 }

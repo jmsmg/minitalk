@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: seonggoc <seonggoc@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/12 17:27:17 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/09/13 13:55:46 by seonggoc         ###   ########.fr       */
+/*   Created: 2023/03/13 14:38:41 by seonggoc          #+#    #+#             */
+/*   Updated: 2023/03/15 14:13:05 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#include "server.h"
-
-int	main()
+size_t	ft_strlen(const char *s)
 {
-	ft_putstr_fd("server pid : ");
-	ft_putnbr_fd(getpid(), 1);
-	write(1, "\n", 1);
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+	{
+		i++;
+	}
+	return (i);
 }

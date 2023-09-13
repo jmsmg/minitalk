@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/12 17:27:17 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/09/13 13:55:46 by seonggoc         ###   ########.fr       */
+/*   Created: 2023/03/21 16:51:26 by seonggoc          #+#    #+#             */
+/*   Updated: 2023/03/21 17:29:37 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#include "server.h"
-
-int	main()
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	ft_putstr_fd("server pid : ");
-	ft_putnbr_fd(getpid(), 1);
-	write(1, "\n", 1);
+	size_t	i;
+	size_t	size;
+	char	*tmp;
+
+	size = ft_strlen(s1) + ft_strlen(s2);
+	tmp = (char *)malloc(size + 1);
+	if (!tmp)
+	{
+		return (0);
+	}
+	tmp[0] = 0;
+	ft_strlcat(tmp, s1, size + 1);
+	i = ft_strlen(s1);
+	ft_strlcat(&tmp[i], s2, size + 1);
+	return (tmp);
 }
