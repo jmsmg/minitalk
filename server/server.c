@@ -6,16 +6,15 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 17:27:17 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/09/12 18:10:04 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/09/13 13:30:46 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "server.h"
-#include <stdio.h>
+#include "server.h"
 
-int	main(int argc, char *argv[])
+int	main()
 {
-	if (argc != 1)
-		return (1);
-
+	// if (argc != 1)
+	// 	return (1);
+	printf("%d", getpid());
 }
