@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/12 17:27:13 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/09/18 17:24:45 by seonggoc         ###   ########.fr       */
+/*   Created: 2023/09/18 17:13:55 by seonggoc          #+#    #+#             */
+/*   Updated: 2023/09/18 17:21:41 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "client.h"
+#include "server.h"
 
-int	main(int argc, char *argv[])
+void	handler(int signum)
 {
-	int		pid;
-	char	msg;
+	ft_putstr_fd("signal!", 1);
+	ft_putnbr_fd(signum, 1);
+}
 
-	if (argc != 3)
+int	main(void)
+{
+	int	pid;
+
+	ft_putstr_fd("pid :", 1);
+	pid = getpid();
+	ft_putnbr_fd(pid, 1);
+	ft_putstr_fd("\n", 1);
+	signal(SIGUSR1, handler);
+	while (1)
 	{
-		ft_putstr_fd("Arguments Error", 1);
-		return (1);
+		sleep(1);
 	}
-	pid = ft_atoi(argv[1]);
-	if (pid < 2 && 32768 < pid)
-	{
-		ft_putstr_fd("pid Error", 1);
-		return (1);
-	}
-	msg = argv[2];
 }
