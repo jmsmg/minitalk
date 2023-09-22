@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 17:27:13 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/09/22 11:35:26 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/09/22 13:53:22 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,12 @@ void	ft_error(int err)
 		ft_putstr_fd("Arguments Error", 1);
 	else if (PID_ERR)
 		ft_putstr_fd("Pid Error", 1);
-	else if (PERMISSION_ERR)
-		ft_putstr_fd("Permssion Denied", 1);
 	else if (MALLOC_ERR)
 		ft_putstr_fd("Malloc Fail", 1);
 	exit(1);
 }
 
-void	connect_signal(pid_t pid, char c)
+void	connect_signal(pid_t pid, unsigned char c)
 {
 	int	i;
 	int	tmp;
@@ -60,7 +58,7 @@ void	send_signal(pid_t pid, char *msg)
 	int	len;
 
 	if (check_permission(pid))
-		ft_error(PERMISSION_ERR);
+		ft_error(PID_ERR);
 	msg = ft_strjoin(msg, "\n");
 	if (!msg)
 		ft_error(MALLOC_ERR);
@@ -83,8 +81,6 @@ int	main(int argc, char *argv[])
 	if (argc != 3)
 		ft_error(ARG_ERR);
 	pid = ft_atoi(argv[1]);
-	if (pid < 2 || 99998 < pid)
-		ft_error(PID_ERR);
 	msg = argv[2];
 	send_signal(pid, msg);
 	exit(0);

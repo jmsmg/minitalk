@@ -6,13 +6,12 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 10:07:10 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/09/22 11:46:36 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/09/22 13:42:38 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SERVER_H
 # define SERVER_H
-# include <stdio.h>
 # include <unistd.h>
 # include <signal.h>
 # include "../libft/libft.h"
