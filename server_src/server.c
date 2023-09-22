@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 17:13:55 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/09/22 11:42:53 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/09/22 11:52:30 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,11 @@ void	handler(int signum)
 	static char	tmp;
 
 	if (signum == SIGUSR1)
-	{
 		tmp |= 0;
-		if (i < 7)
-			tmp <<= 1;
-	}
 	else if (signum == SIGUSR2)
-	{
 		tmp |= 1;
-		if (i < 7)
-			tmp <<= 1;
-	}
+	if (i < 7)
+		tmp <<= 1;
 	i++;
 	if (i == 8)
 	{
