@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 17:27:13 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/09/22 10:06:56 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/09/22 11:35:26 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ void	ft_error(int err)
 	if (err == ARG_ERR)
 		ft_putstr_fd("Arguments Error", 1);
 	else if (PID_ERR)
-		ft_putstr_fd("Pid Error");
+		ft_putstr_fd("Pid Error", 1);
 	else if (PERMISSION_ERR)
-		ft_putstr_fd("Permssion Denied");
+		ft_putstr_fd("Permssion Denied", 1);
 	else if (MALLOC_ERR)
-		ft_putstr_fd("Malloc Fail");
+		ft_putstr_fd("Malloc Fail", 1);
 	exit(1);
 }
 
@@ -54,7 +54,7 @@ int	check_permission(pid_t pid)
 	return (0);
 }
 
-int	send_signal(pid_t pid, char *msg)
+void	send_signal(pid_t pid, char *msg)
 {
 	int	i;
 	int	len;
@@ -83,7 +83,7 @@ int	main(int argc, char *argv[])
 	if (argc != 3)
 		ft_error(ARG_ERR);
 	pid = ft_atoi(argv[1]);
-	if (pid < 2 && 32768 < pid)
+	if (pid < 2 || 99998 < pid)
 		ft_error(PID_ERR);
 	msg = argv[2];
 	send_signal(pid, msg);
