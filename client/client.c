@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 17:27:13 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/09/22 09:48:30 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/09/22 10:06:56 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,6 @@ int	main(int argc, char *argv[])
 	pid = ft_atoi(argv[1]);
 	if (pid < 2 && 32768 < pid)
 		ft_error(PID_ERR);
-
 	msg = argv[2];
 	send_signal(pid, msg);
 	exit(0);
