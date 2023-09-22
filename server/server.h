@@ -5,11 +5,8 @@
 #include <signal.h>
 #include "../libft/libft.h"
 
-union t_server
-{
-	int		num2;
-	char	c1;
-	short	num2;
-};
+#define PID_FAIL 1
+#define SIG_FAIL 2
+
 
 #endif
